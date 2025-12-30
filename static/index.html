@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Analytics Dashboard</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass">
+            <div class="logo">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Nexus</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active"><i class="fa-solid fa-chart-line"></i> Dashboard</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Users</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-wallet"></i> Sales</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+
+            <div class="user-profile">
+                <div class="avatar">DA</div>
+                <div class="user-info">
+                    <span class="name">Dev Admin</span>
+                    <span class="role">Administrator</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header / Controls -->
+            <header class="top-bar">
+                <h1>Dashboard Overview</h1>
+                
+                <div class="controls glass">
+                    <div class="control-group">
+                        <label>Date Range</label>
+                        <select id="dateRange" class="styled-select">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30" selected>Last 30 Days</option>
+                            <option value="90">Last 3 Months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label>Category</label>
+                        <select id="categoryFilter" class="styled-select">
+                            <option value="">All Categories</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Home">Home</option>
+                            <option value="Books">Books</option>
+                        </select>
+                    </div>
+
+                    <button id="refreshBtn" class="refresh-btn">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card glass">
+                    <div class="icon-box purple"><i class="fa-solid fa-coins"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-value" id="totalRevenue">Loading...</p>
+                        <span class="stat-trend positive">+12.5% <i class="fa-solid fa-arrow-trend-up"></i></span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass">
+                    <div class="icon-box blue"><i class="fa-solid fa-user-group"></i></div>
+                    <div class="stat-info">
+                        <h3>Active Users</h3>
+                        <p class="stat-value" id="activeUsers">Loading...</p>
+                        <span class="stat-trend positive">+8.2% <i class="fa-solid fa-arrow-trend-up"></i></span>
+                    </div>
+                </div>
+
+                <div class="stat-card glass">
+                    <div class="icon-box green"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="stat-info">
+                        <h3>avg. Conversion</h3>
+                        <p class="stat-value" id="conversionRate">Loading...</p>
+                        <span class="stat-trend negative">-2.1% <i class="fa-solid fa-arrow-trend-down"></i></span>
+                    </div>
+                </div>
+                
+                 <div class="stat-card glass">
+                    <div class="icon-box orange"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="stat-info">
+                        <h3>Top Category</h3>
+                        <p class="stat-value" id="topCategory">Loading...</p>
+                        <span class="stat-date">Last 30 Days</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <div class="chart-card glass full-width">
+                    <div class="chart-header">
+                        <h2>Traffic & Sales Trends</h2>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
