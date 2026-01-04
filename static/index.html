@@ -71,6 +71,10 @@
                         </select>
                     </div>
 
+                    <button id="exportBtn" class="action-btn">
+                        <i class="fa-solid fa-download"></i> Export
+                    </button>
+
                     <button id="refreshBtn" class="refresh-btn">
                         <i class="fa-solid fa-rotate-right"></i>
                     </button>
@@ -116,14 +120,39 @@
                 </div>
             </div>
 
-            <!-- Charts Section -->
-            <div class="charts-container">
-                <div class="chart-card glass full-width">
+            <!-- Dashboard Grid: Charts + Transactions -->
+            <div class="dashboard-grid">
+                <!-- Charts Section -->
+                <div class="chart-card glass">
                     <div class="chart-header">
                         <h2>Traffic & Sales Trends</h2>
                     </div>
                     <div class="chart-wrapper">
                         <canvas id="mainChart"></canvas>
+                    </div>
+                </div>
+
+                 <!-- Recent Transactions -->
+                 <div class="transactions-card glass">
+                    <div class="card-header">
+                        <h2>Recent Transactions</h2>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionsTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
